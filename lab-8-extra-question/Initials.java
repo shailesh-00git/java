@@ -1,7 +1,7 @@
 class Initials {
   public static void main(String[] args) {
     String name = "Shailesh yadav";
-
+    System.out.println(name);
     System.out.print(Character.toUpperCase(name.charAt(0)));
 
     for (int i = 0; i < name.length() - 1; i++) {
