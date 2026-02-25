@@ -1,11 +1,8 @@
-package inputoutput;
 
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
+import java.io.*;
 
 class ShowFile {
   public static void main(String[] args) {
-
     int i;
     FileInputStream fin;
     // first confirm that a file name has been specified
@@ -22,24 +19,21 @@ class ShowFile {
     }
 
     try {
-
       do {
         i = fin.read();
         if (i != -1) {
           System.out.print((char) i);
         }
-
       } while (i != -1);
-
     } catch (Exception e) {
       System.out.println("Error reading file: ");
-    }
-
-    // close the file
-    try {
-      fin.close();
-    } catch (Exception e) {
-      System.out.println("Error closing file: ");
+    } finally {
+      try {
+        fin.close();
+      } catch (Exception e) {
+        System.out.println(e);
+      }
+      System.out.println("\n!!! File closed !!!");
     }
   }
 }

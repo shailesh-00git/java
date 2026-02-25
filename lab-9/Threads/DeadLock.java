@@ -51,6 +51,8 @@ public class DeadLock implements Runnable {
   }
 
   public static void main(String[] args) {
-    new DeadLock();
+    DeadLock d = new DeadLock();
+    d.a.foo(d.b); // Main thread locks A
+    d.b.bar(d.a); // Main thread locks B
   }
 }

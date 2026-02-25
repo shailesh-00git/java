@@ -1,8 +1,4 @@
-package inputoutput;
-
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.io.*;
 
 class BRread {
   public static void main(String[] args) throws IOException {
@@ -12,8 +8,8 @@ class BRread {
     // read all characters
     do {
       c = (char) br.read();
-      System.out.println(c);
-
+      if (c != '\n' && c != '\r') // ignore newline characters
+        System.out.println("Entered character: " + c);
     } while (c != 'q');
   }
 }
