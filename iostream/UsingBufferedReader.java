@@ -13,7 +13,6 @@ public class UsingBufferedReader {
       str = br.readLine();
       if (!str.equals("exit")) {
         System.out.println("You entered: " + str);
-
       }
     } while (!str.equals("exit"));
 

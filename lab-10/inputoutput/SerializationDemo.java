@@ -1,42 +1,44 @@
 
-import java.io.*;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.io.Serializable;
+import javax.sound.sampled.SourceDataLine;
 
-class Employee implements Serializable {
-  int id;
+class User implements Serializable {
   String name;
-  double salary;
+  String address;
+  int age;
 
-  public Employee(int id, String name, double salary) {
-    this.id = id;
+  public User(String name, int age, String address) {
     this.name = name;
-    this.salary = salary;
-  }
-
-  public String toString() {
-    return "name: " + name + " id: " + id + " salary: " + salary;
+    this.age = age;
+    this.address = address;
   }
 }
 
-class SerializationDemo {
-  public static void main(String[] args) {
-    // object serialization
-    try (ObjectOutputStream objOstr = new ObjectOutputStream(new FileOutputStream("serial.ser"))) {
-      Employee emp = new Employee(1, "John Doe", 50000.0);
-      System.out.println("emp" + emp);
-      objOstr.writeObject(emp);
+public class SerializationDemo {
+
+  public static void main(String[] args) throws Exception {
+    User user1 = new User("shailesh", 20, "Dang");
+    // writing the object state to file (serialization)
+    ObjectOutputStream oos = new ObjectOutputStream(new FileOutputStream("serilization.ser"));
+    oos.writeObject(user1);
+    oos.close();
+    System.out.println("object saved....");
+
+    // deserialization
+    try (ObjectInputStream ois = new ObjectInputStream(new FileInputStream("serilization.ser"))) {
+      // ois.readObject() ---> returns object so we hane to cast it to User type
+      User data = (User) ois.readObject();
+      System.out.println(data.name);
+      System.out.println(data.age);
+      System.out.println(data.address);
+
     } catch (Exception e) {
-      System.out.println("Exception during serialization");
+      System.out.println(e);
     }
-
-    // object deserialization
-    try (ObjectInputStream objInstr = new ObjectInputStream(new FileInputStream("serial.ser"))) {
-      Employee emp = (Employee) objInstr.readObject();
-      System.out.println("emp" + emp);
-
-    } catch (Exception e) {
-      System.out.println("Exception during deserialization");
-    }
-
   }
 
 }
