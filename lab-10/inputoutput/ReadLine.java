@@ -8,6 +8,7 @@ class ReadLine {
     do {
       System.out.println("Enter lines of text:");
       try {
+        // br.readLine returns string
         str = br.readLine();
         System.out.println("You Entered: " + str);
       } catch (IOException e) {
