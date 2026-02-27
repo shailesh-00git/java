@@ -8,7 +8,7 @@ class BRread {
     // read all characters
     do {
       c = (char) br.read();
-      if (c != '\n' && c != '\r') // ignore newline characters
+      if (c != '\n' && c != '\r' && c != 'q') // ignore newline characters
         System.out.println("Entered character: " + c);
     } while (c != 'q');
   }

@@ -4,36 +4,26 @@ import java.io.*;
 class ShowFile {
   public static void main(String[] args) {
     int i;
-    FileInputStream fin;
+
     // first confirm that a file name has been specified
     if (args.length != 1) {
-      System.out.println("Usage: ShowFile filename");
+      System.out.println("Usage: Pleasse enter filename");
       return;
     }
     // attepmt to open a file
-    try {
-      fin = new FileInputStream(args[0]);
-    } catch (FileNotFoundException e) {
-      System.out.println("cannot open a file");
-      return;
-    }
-
-    try {
+    try (FileInputStream fin = new FileInputStream(args[0])) {
       do {
         i = fin.read();
         if (i != -1) {
           System.out.print((char) i);
         }
       } while (i != -1);
-    } catch (Exception e) {
-      System.out.println("Error reading file: ");
-    } finally {
-      try {
-        fin.close();
-      } catch (Exception e) {
-        System.out.println(e);
-      }
-      System.out.println("\n!!! File closed !!!");
+    } catch (FileNotFoundException e) {
+      System.out.println("cannot open a file");
+
+    } catch (IOException e) {
+      System.out.println(e);
     }
+    System.out.println("\n!!! File closed !!!");
   }
 }
