@@ -1,37 +1,24 @@
-
-import java.util.EmptyStackException;
-import java.util.Stack;
+import java.util.*;
 
 class StackDemo {
-  static void showpush(Stack<Integer> st, int a) {
-    st.push(a);
-    System.out.println("push(" + a + ")");
-    System.out.println("stack: " + st);
-  }
-
-  static void showpop(Stack<Integer> st) {
-    System.out.print("pop -> ");
-    Integer a = st.pop();
-    System.out.println(a);
-    System.out.println("stack: " + st);
-  }
-
   public static void main(String[] args) {
-    Stack<Integer> s = new Stack<>();
-    System.out.println("stack: " + s);
-    showpush(s, 42);
+    Stack<Integer> st = new Stack<>();
+    System.out.println(st);
+    st.push(12);
+    st.push(45);
+    st.push(56);
+    st.push(02);
+    System.out.println(st);
+    System.out.println("Removed: " + st.pop());
+    System.out.println(st);
+    System.out.println("Peeked: " + st.peek());
+    System.out.println(st);
 
-    showpush(s, 66);
-    showpush(s, 99);
-
-    showpop(s);
-    showpop(s);
-    showpop(s);
-    try {
-      showpop(s);
-    } catch (EmptyStackException e) {
-      System.out.println(e);
-    }
+    System.out.println("Get: " + st.get(1));
+    st.set(1, 99);
+    System.out.println("Replaced element at index 1 by 99");
+    System.out.println(st);
+    System.out.println("Is Empty: " + st.isEmpty());
 
   }
 }

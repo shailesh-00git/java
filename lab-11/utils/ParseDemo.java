@@ -1,24 +1,23 @@
-
 import java.io.*;
 
 class ParseDemo {
   public static void main(String[] args) {
-    BufferedReader br = new BufferedReader(new InputStreamReader(System.in, System.console().charset()));
-    String str;
-    int i;
-    int sum = 0;
-    System.out.println("Enter no 0 to quit:");
-    do {
 
+    BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+    System.out.println("Enter 0 to stop:");
+    int sum = 0;
+    int i = 0;
+    do {
       try {
-        str = br.readLine();
-        i = Integer.parseInt(str);
-      } catch (NumberFormatException e) {
-        System.out.println(" invalid format");
-        i = 0;
+        // converting to number
+        // br.readline() return string
+        i = Integer.parseInt(br.readLine());
+
+      } catch (IOException e) {
+        System.out.println(e);
       }
       sum = sum + i;
-      System.out.println("Couurennt sun is: " + sum);
+      System.out.println("Sum = " + sum);
     } while (i != 0);
   }
 }

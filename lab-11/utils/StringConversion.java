@@ -1,8 +1,12 @@
 public class StringConversion {
   public static void main(String[] args) {
-    int num = 1233;
-    System.out.println("num is: " + Integer.toBinaryString(num) + " in binary");
-    System.out.println("num is: " + Integer.toOctalString(num) + " in octal");
-    System.out.println("num is: " + Integer.toHexString(num) + " in hexadecimal");
+    int n = 10;
+    System.out.println("Binary: " + Integer.toBinaryString(n));
+    System.out.println("Octal: " + Integer.toOctalString(n));
+    System.out.println("Hexadecimal: " + Integer.toHexString(n));
+    // interger to string
+    if (Integer.toString(n).equals("10")) {
+      System.out.println("true");
+    }
   }
 }
