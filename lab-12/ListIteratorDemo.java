@@ -10,13 +10,13 @@ class ListIteratorDemo {
     al.add("C");
     al.add("D");
     al.add("E");
-    System.out.println("Original contents od al: " + al);
+    System.out.println("Original contents of al: " + al);
 
     // using iterator
     ListIterator<String> ls = al.listIterator();
     while (ls.hasNext()) {
       String element = ls.next();
-      System.out.println(element);
+      System.out.print(element+" ");
     }
 
     // modify
@@ -29,15 +29,14 @@ class ListIteratorDemo {
     while (lsm.hasNext()) {
       System.out.println();
       String element = lsm.next();
-      System.out.println(element);
+      System.out.print(element+" ");
 
     }
     // backward it
-    System.out.println("backward ");
+    System.out.println("\nbackward ");
     while (lsm.hasPrevious()) {
-      System.out.println();
       String element = lsm.previous();
-      System.out.println(element);
+      System.out.print(element+" ");
 
     }
 

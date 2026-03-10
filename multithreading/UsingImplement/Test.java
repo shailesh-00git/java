@@ -2,7 +2,9 @@ class MyThread implements Runnable {
   @Override
   public void run() {
     System.out.println("Thread is running...");
+    System.out.println(Thread.currentThread().getName());
   }
+
 }
 
 public class Test {
@@ -10,5 +12,6 @@ public class Test {
     MyThread m1 = new MyThread();
     Thread t1 = new Thread(m1);
     t1.start();
+    System.out.println(Thread.currentThread().getName());
   }
 }

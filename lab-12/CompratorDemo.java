@@ -6,12 +6,12 @@ class CompratorDemo {
     ts.add("alpha");
     ts.add("beta");
     ts.add("theta");
-    ts.add("epsilon");
     System.out.println(ts);
-    
+
     // displayin the element of the tree set
     for (String el : ts) {
       System.out.println(el);
     }
+
   }
 }

@@ -46,6 +46,12 @@ class Producer extends Thread {
   public void run() {
     for (int i = 0; i < 10; i++) {
       shared.produce(i);
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        System.out.println(e);
+      }
+
     }
   }
 }
@@ -60,7 +66,13 @@ class Consumer extends Thread {
   public void run() {
     for (int i = 0; i < 10; i++) {
       shared.consume();
+      try {
+        Thread.sleep(1000);
+      } catch (InterruptedException e) {
+        System.out.println(e);
+      }
     }
+
   }
 }
 
