@@ -5,5 +5,8 @@
   "prettier.trailingComma": "all",
   "prettier.tabWidth": 2,
   "prettier.semi": false,
-  "java.debug.settings.onBuildFailureProceed": true
+  "java.debug.settings.onBuildFailureProceed": true,
+  "[java]": {
+    "editor.defaultFormatter": "redhat.java"
+  }
 }
