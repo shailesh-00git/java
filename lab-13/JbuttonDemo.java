@@ -5,48 +5,47 @@ import java.awt.event.ActionEvent;
 
 class JbuttonDemo implements ActionListener {
 
-    JLabel jlab; // class variable
+    JLabel jlab;
 
     JbuttonDemo() {
 
-        JFrame jframe = new JFrame("JButton Demo");
+        JFrame jframe = new JFrame("Button Events");
         jframe.setLayout(new FlowLayout());
-        jframe.setSize(400, 500);
+        jframe.setSize(350, 200);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
-        // Button 1
-        ImageIcon ii = new ImageIcon("ico.png");
-        JButton jbut1 = new JButton(ii);
-        jbut1.setActionCommand("Videos");
-        jbut1.addActionListener(this);
-        jframe.add(jbut1);
+        // Load only ONE image
+        ImageIcon icon1 = new ImageIcon("images/facebook.png");
+        ImageIcon icon2 = new ImageIcon("images/instagram.png");
+        ImageIcon icon3 = new ImageIcon("images/whatsapp.png");
 
-        // Button 2
-        ImageIcon ii0 = new ImageIcon("ico.png");
-        JButton jbut2 = new JButton(ii0);
-        jbut2.setActionCommand("MP4");
-        jbut2.addActionListener(this);
-        jframe.add(jbut2);
+        // Create buttons using the same image
+        JButton ficon = new JButton(icon1);
+        ficon.setActionCommand("Facebook");
+        ficon.addActionListener(this);
 
-        // Button 3
-        ImageIcon ii1 = new ImageIcon("ico.png");
-        JButton jbut3 = new JButton(ii1);
-        jbut3.setActionCommand("Music");
-        jbut3.addActionListener(this);
-        jframe.add(jbut3);
+        JButton iicon = new JButton(icon2);
+        iicon.setActionCommand("Instagram");
+        iicon.addActionListener(this);
 
-        JTextField tf = new JTextField(15);
-        jframe.add(tf);
+        JButton wicon = new JButton(icon3);
+        wicon.setActionCommand("Whatsapp");
+        wicon.addActionListener(this);
 
-        jlab = new JLabel();
+        // Add buttons to frame
+        jframe.add(ficon);
+        jframe.add(iicon);
+        jframe.add(wicon);
+
+        // Label
+        jlab = new JLabel("Click a button");
         jframe.add(jlab);
 
         jframe.setVisible(true);
     }
 
-    // handle button click
     public void actionPerformed(ActionEvent ae) {
-        jlab.setText("Your text: " + ae.getActionCommand());
+        jlab.setText(ae.getActionCommand());
     }
 
     public static void main(String[] args) {

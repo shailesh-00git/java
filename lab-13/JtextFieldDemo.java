@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 
 class JtextFieldDemo {
     JtextFieldDemo() {
-        JFrame jframe = new JFrame("J label demo");
+        JFrame jframe = new JFrame("JTextField demo");
         jframe.setLayout(new FlowLayout());
         jframe.setSize(400, 500);
         jframe.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
