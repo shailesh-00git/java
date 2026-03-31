@@ -2,13 +2,14 @@
 class Frequency {
   public static void main(String[] args) {
     int[] arr = new int[127];
-    String str = "hello world";
+    String str = "hello worldaaaaa";
     for (int i = 0; i < str.length(); i++) {
       arr[str.charAt(i)] = arr[str.charAt(i)] + 1;
     }
-    int max = -1;
+    int i=0       ;
+    int max = arr[i];
     char ch = ' ';
-    for (int i = 0; i < arr.length; i++) {
+    for ( i = 1; i < arr.length; i++) {
       if (max < arr[i]) {
         max = arr[i];
         ch = (char) i;
