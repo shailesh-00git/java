@@ -29,4 +29,4 @@
 
 # steps to run the program
 1. compile : javac FILE_NAME.java
-2. run: java -cp ".;DRIVE_FILE_NAME.jar" FILE_NAME
+2. run: java -cp ".;DRIVE_FILE_NAME.jar" FILE_NAMEjava -cp ".;DRIVE_FILE_NAME.jar" FILE_NAME
